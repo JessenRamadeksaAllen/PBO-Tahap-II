@@ -26,8 +26,9 @@ public class SistemPerpustakaan {
             System.out.println("8. Tampilkan Notifikasi");
             System.out.println("9. Kirim Notifikasi");
             System.out.println("10. Keluar");
+            System.out.println("11. Kembalikan Buku");
 
-            System.out.print("Pilih menu (1-10): ");
+            System.out.print("Pilih menu (1-11): ");
 
             int menu = scanner.nextInt();
             scanner.nextLine();
@@ -159,6 +160,11 @@ public class SistemPerpustakaan {
                     default:
                     System.out.println("Menu tidak valid. Pilih menu lain.");
                      break;
+                case 11:
+                    System.out.print("Masukkan judul buku yang ingin dikembalikan: ");
+                    String judulKembali = scanner.nextLine();
+                    admin.kembalikanBuku(judulKembali);
+                    break;
                 } 
             }
         }
