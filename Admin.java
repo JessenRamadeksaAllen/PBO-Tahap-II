@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sistemperpustakaan;
 
 import java.util.ArrayList;
@@ -13,6 +8,7 @@ import java.util.ArrayList;
  */
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Admin {
@@ -26,9 +22,6 @@ public class Admin {
     ArrayList<AnggotaPerpustakaan> daftarAnggota = new ArrayList<>();
     ArrayList<Buku> daftarbuku = new ArrayList<>();
 
-//    Admin(int i, String josh) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
     
     public void addBuku(int idBuku, String judul, String noISBN, String statusKetersediaan){
         Buku buku = new Buku(idBuku, judul, noISBN, statusKetersediaan);
@@ -36,15 +29,17 @@ public class Admin {
         System.out.println("Berhasil Menambah Buku " + judul);
     }
     
-    public void hapusBuku(String judul){
-        for(Buku v : daftarbuku){
-            if(v.getJudul().contains(judul)){
-                daftarbuku.remove(v);
-                System.out.println("Berhasil Menghapus Buku " + judul);
-                System.out.println(" ");
-            }
+    public void hapusBuku(String judul) {
+    Iterator<Buku> iterator = daftarbuku.iterator();
+    while (iterator.hasNext()) {
+        Buku buku = iterator.next();
+        if (buku.getJudul().contains(judul)) {
+            iterator.remove();  // Safely remove the current element
+            System.out.println("Berhasil Menghapus Buku " + judul);
+            System.out.println(" ");
         }
-    }    
+    }
+}
     public void addAnggota(String nama, int noAnggota, String alamat){
         AnggotaPerpustakaan a = new AnggotaPerpustakaan(nama, noAnggota, alamat);
         daftarAnggota.add(a);
