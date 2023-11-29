@@ -29,23 +29,6 @@ public class AnggotaPerpustakaan extends SistemPerpustakaan{
 
     public AnggotaPerpustakaan() {
     }
-
-    
-    public void pinjamBuku(String judul){
-        boolean bisa = false;
-        for(Buku v : adm.daftarbuku){
-            if(v.getJudul().contains(judul)){
-               riwayatPeminjaman.add(v);
-                System.out.println("Sukses");
-                v.setStatusKetersediaan("Tidak Ada");
-                bisa = true;
-            }
-        }
-        if(!bisa){
-            System.out.println("Buku Tidak Ada");
-            bisa = false;
-        }
-    }
     
     public void cariBuku(String Judul){
         boolean ditemukan =false;
