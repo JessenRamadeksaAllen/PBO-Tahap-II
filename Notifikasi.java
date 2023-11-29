@@ -3,7 +3,6 @@ package sistemperpustakaan;
 import java.time.LocalDate;
 import java.util.Date;
 
-
 public class Notifikasi {
     private int idNotif;
     private int noAnggota;
@@ -11,16 +10,20 @@ public class Notifikasi {
     private LocalDate timeStamp;
     private transaksiPeminjaman transaksi;
 
+    public Notifikasi(int idNotif, int noAnggota, String pesan, LocalDate timeStamp) {
+        this.idNotif = idNotif;
+        this.noAnggota = noAnggota;
+        this.pesan = pesan;
+        this.timeStamp = timeStamp;
+        this.transaksi = null; 
+    }
+
     public Notifikasi(int idNotif, int noAnggota, String pesan, LocalDate timeStamp, transaksiPeminjaman transaksi) {
         this.idNotif = idNotif;
         this.noAnggota = noAnggota;
         this.pesan = pesan;
         this.timeStamp = timeStamp;
-        this.transaksi = transaksi;
-    }
-
-    Notifikasi(int idNotif, int noAnggota, String pesan, LocalDate timeStamp) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.transaksi = transaksi; 
     }
 
     public int getIdNotif() {
