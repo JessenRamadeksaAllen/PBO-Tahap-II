@@ -1,8 +1,6 @@
 package sistemperpustakaan;
 
 import java.util.Date;
-
-
 import java.time.LocalDate;
 
 public class transaksiPeminjaman extends AnggotaPerpustakaan{
@@ -14,7 +12,7 @@ public class transaksiPeminjaman extends AnggotaPerpustakaan{
     private Buku buku;
 
     public transaksiPeminjaman(int idTransaksi, int noAnggota, int noISBN, LocalDate tanggalPeminjaman, LocalDate tenggatWaktu, Buku buku, int idAnggota, String nama, String alamat, String nomorAnggota) {
-    
+    //    super(idAnggota, nama, alamat, nomorAnggota);
         this.idTransaksi = idTransaksi;
         this.noAnggota = noAnggota;
         this.noISBN = noISBN;
@@ -76,6 +74,27 @@ public class transaksiPeminjaman extends AnggotaPerpustakaan{
     public void setBuku(Buku buku) {
         this.buku = buku;
     }
+    public void pinjamBuku(String judul) {
+    boolean bisa = false;
+    if (adm != null) {
+        for (Buku v : adm.daftarbuku) {
+            if (v.getJudul().contains(judul)) {
+                riwayatPeminjaman.add(v);
+                System.out.println("Sukses");
+                v.setStatusKetersediaan("Tidak Ada");
+                bisa = true;
+            }
+        }
+    } else {
+        System.out.println("Error: Objek admin (adm) bernilai null.");
+        return;
+    }
+
+    if (!bisa) {
+        System.out.println("Buku Tidak Ada");
+    }
+}
+
 
 
     public void catatanPeminjaman(){
