@@ -54,14 +54,14 @@ public class Admin {
     }
 
     public void kirimNotifikasi(AnggotaPerpustakaan anggota, int idNotif, int noAnggota, String pesan, LocalDate now) {
-        LocalDate timeStamp = LocalDate.now();
-        Notifikasi notifikasi = new Notifikasi(idNotif, noAnggota, pesan, timeStamp);
+        Notifikasi notifikasi = new Notifikasi(idNotif, noAnggota, pesan, now);
         anggota.notif.add(notifikasi);
     }
 
-
-
+    public void kirimNotifikasi(AnggotaPerpustakaan anggota, int idNotif, int noAnggota, String pesan, LocalDate now, transaksiPeminjaman transaksi) {
+        Notifikasi notifikasi = new Notifikasi(idNotif, noAnggota, pesan, now, transaksi);
+        anggota.notif.add(notifikasi);
+    }
 
 }
     
-
