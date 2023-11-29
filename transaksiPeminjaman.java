@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sistemperpustakaan;
 
 import java.util.Date;
 
-/**
- *
- * @author ASUS
- */
+
 import java.time.LocalDate;
 
 public class transaksiPeminjaman extends AnggotaPerpustakaan{
@@ -22,7 +14,7 @@ public class transaksiPeminjaman extends AnggotaPerpustakaan{
     private Buku buku;
 
     public transaksiPeminjaman(int idTransaksi, int noAnggota, int noISBN, LocalDate tanggalPeminjaman, LocalDate tenggatWaktu, Buku buku, int idAnggota, String nama, String alamat, String nomorAnggota) {
-    //    super(idAnggota, nama, alamat, nomorAnggota);
+    
         this.idTransaksi = idTransaksi;
         this.noAnggota = noAnggota;
         this.noISBN = noISBN;
