@@ -29,6 +29,23 @@ public class AnggotaPerpustakaan extends SistemPerpustakaan{
 
     public AnggotaPerpustakaan() {
     }
+
+    
+    public void pinjamBuku(String judul){
+        boolean bisa = false;
+        for(Buku v : adm.daftarbuku){
+            if(v.getJudul().contains(judul)){
+               riwayatPeminjaman.add(v);
+                System.out.println("Sukses");
+                v.setStatusKetersediaan("Tidak Ada");
+                bisa = true;
+            }
+        }
+        if(!bisa){
+            System.out.println("Buku Tidak Ada");
+            bisa = false;
+        }
+    }
     
     public void cariBuku(String Judul){
         boolean ditemukan =false;
@@ -53,19 +70,6 @@ public class AnggotaPerpustakaan extends SistemPerpustakaan{
         }
         System.out.println(daftarP.toString());
     }
-    public void kembalikanBuku(String judul) {
-    boolean bisa = false;
-    for (Buku buku : riwayatPeminjaman) {
-        if (buku.getJudul().equals(judul)) {
-            buku.setStatusKetersediaan("Tersedia");
-            System.out.println("Buku " + judul + " berhasil dikembalikan.");
-            bisa = true;
-        }
-    }
-    if (!bisa) {
-        System.out.println("Buku " + judul + " tidak ditemukan dalam riwayat peminjaman.");
-    }
-}
 
     public void tampilkanNotifikasi(){
         System.out.println("Berikut Keterangan Peminjaman : ");
