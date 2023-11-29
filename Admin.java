@@ -63,5 +63,24 @@ public class Admin {
         anggota.notif.add(notifikasi);
     }
 
+    public void kembalikanBuku(String judul) {
+        for (AnggotaPerpustakaan anggota : daftarAnggota) {
+            if (anggota.riwayatPeminjaman.size() > 0) {
+                for (Buku buku : anggota.riwayatPeminjaman) {
+                    if (buku.getJudul().equals(judul)) {
+                        buku.setStatusKetersediaan("Tersedia");
+                        anggota.riwayatPeminjaman.remove(buku);
+                        System.out.println("Berhasil Mengembalikan Buku " + judul);
+                        return;  // Keluar dari metode setelah menemukan dan mengembalikan buku
+                    }
+                }
+            }
+        }
+        System.out.println("Buku " + judul + " tidak ditemukan dalam riwayat peminjaman.");
+    }
+
+
+
 }
     
+
