@@ -25,8 +25,7 @@ public class SistemPerpustakaan {
             System.out.println("7. Lihat Riwayat Peminjaman");
             System.out.println("8. Tampilkan Notifikasi");
             System.out.println("9. Kirim Notifikasi");
-            System.out.println("10. Kembalikan Buku");
-            System.out.println("11. Keluar");
+            System.out.println("10. Keluar");
 
             System.out.print("Pilih menu (1-10): ");
 
@@ -154,11 +153,6 @@ public class SistemPerpustakaan {
                     break;
 
                 case 10:
-                    System.out.print("Masukkan judul buku yang ingin dikembalikan: ");
-                    String judulKembali = scanner.nextLine();
-                    agt.kembalikanBuku(judulKembali);
-                    break;
-                case 11:
                     System.out.println("Terima Kasih");
                     System.exit(0);
                     break;
